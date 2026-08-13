@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – TEENZNET RYAD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== PRELOADER ===== -->
+<div id="preloader">
+  <div class="loader-ring"></div>
+  <p>RYAD</p>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header id="navbar">
+  <div class="nav-container">
+    <a href="index.html#home" class="logo">TEENZNET<span>·RYAD</span></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home" class="nav-link">Home</a>
+      <a href="index.html#join" class="nav-link">Join RYAD</a>
+      <a href="index.html#partner" class="nav-link">Partner With Us</a>
+      <a href="contact_us.html" class="nav-link active">Contact Us</a>
+      <a href="join_ryad.html" class="nav-link">Create Account</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="join_ryad.html" class="btn btn-outline nav-cta">Create Parent Account</a>
+    </div>
+
+    <button id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section" style="padding-top: 140px;">
+  <div class="container contact-grid">
+    <div class="contact-info" data-aos="fade-right">
+      <p class="section-tag light">Contact Us</p>
+      <h2>Let's Build The Future Together</h2>
+      <p>Reach out to learn more, register, volunteer or partner with the RYAD movement.</p>
+
+      <div class="info-item">
+        <span>📍</span>
+        <p>Edo House, Abuja, Nigeria</p>
+      </div>
+      <div class="info-item">
+        <span>✉️</span>
+        <p>info@teenznet-ryad.org</p>
+      </div>
+      <div class="info-item">
+        <span>📞</span>
+        <p>+234 000 000 0000</p>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <form class="contact-form" data-aos="fade-left" id="contactForm">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+      </div>
+      <input type="text" placeholder="Subject" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary full">Send Message</button>
+      <p class="form-note" id="contactNote"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section class="contact-section" style="padding-top: 0;">
+  <div class="container">
+    <p class="section-tag center" data-aos="fade-up">Find Us</p>
+    <h2 class="center" data-aos="fade-up">Edo House, Abuja</h2>
+    <p class="center sub" data-aos="fade-up" data-aos-delay="100">
+      Visit us at Edo House, located in the Central Business District, Abuja.
+    </p>
+    <div style="border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.15);">
+      <iframe
+        title="Edo House Abuja Map"
+        src="https://www.google.com/maps?q=Edo+House,+Abuja,+Nigeria&output=embed"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="index.html#home" class="logo">TEENZNET<span>·RYAD</span></a>
+      <p>Raising Youths for a Responsible & Accountable Future.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#join">Join RYAD</a>
+      <a href="index.html#partner">Partner With Us</a>
+      <a href="contact_us.html">Contact Us</a>
+    </div>
+    <div>
+      <h4>Key Areas</h4>
+      <a href="#">Psychological Development</a>
+      <a href="#">Relationships & Communication</a>
+      <a href="#">Character & Values</a>
+    </div>
+    <div>
+      <h4>Account</h4>
+      <a href="join_ryad.html">Create Parent Account</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> TEENZNET – RYAD. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const preloader = document.getElementById('preloader');
+  window.addEventListener('load', () => setTimeout(() => preloader.classList.add('hide'), 400));
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    backToTop.classList.toggle('show', window.scrollY > 500);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  const backToTop = document.getElementById('backToTop');
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const contactForm = document.getElementById('contactForm');
+  const contactNote = document.getElementById('contactNote');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactNote.textContent = '✅ Message sent! We\'ll get back to you soon.';
+    contactNote.style.color = 'green';
+    contactForm.reset();
+    setTimeout(() => contactNote.textContent = '', 6000);
+  });
+
+  document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
