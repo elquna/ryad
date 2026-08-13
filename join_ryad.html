@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<!-- ===== PRELOADER ===== -->
+<div id="preloader">
+  <div class="loader-ring"></div>
+  <p>RYAD</p>
+</div>
+
 <!-- ===== NAVBAR ===== -->
 <header id="navbar">
   <div class="nav-container">
@@ -20,7 +26,7 @@
       <a href="index.html#join" class="nav-link">Join RYAD</a>
       <a href="index.html#partner" class="nav-link">Partner With Us</a>
       <a href="index.html#contact" class="nav-link">Contact Us</a>
-      <a href="join_ryad.html" class="nav-link active">Create Account</a>
+      <a href="join_ryad.html" class="nav-link">Create Account</a>
     </nav>
 
     <div class="nav-actions">
@@ -77,6 +83,12 @@
       <a href="index.html#contact">Contact Us</a>
     </div>
     <div>
+      <h4>Key Areas</h4>
+      <a href="#">Psychological Development</a>
+      <a href="#">Relationships & Communication</a>
+      <a href="#">Character & Values</a>
+    </div>
+    <div>
       <h4>Account</h4>
       <a href="join_ryad.html">Create Parent Account</a>
     </div>
@@ -86,27 +98,30 @@
   </div>
 </footer>
 
+<!-- Back to top -->
+<button id="backToTop" aria-label="Back to top">↑</button>
+
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const parentForm = document.getElementById('parentSignupForm');
+  const signupNote = document.getElementById('signupNote');
 
-  const form = document.getElementById('parentSignupForm');
-  const note = document.getElementById('signupNote');
+  if (parentForm) {
+    parentForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const password = parentForm.password.value;
+      const confirmPassword = parentForm.confirm_password.value;
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const password = form.password.value;
-    const confirmPassword = form.confirm_password.value;
+      if (password !== confirmPassword) {
+        signupNote.textContent = 'Passwords do not match. Please try again.';
+        signupNote.style.color = '#d33';
+        return;
+      }
 
-    if (password !== confirmPassword) {
-      note.textContent = 'Passwords do not match. Please try again.';
-      note.style.color = '#d33';
-      return;
-    }
-
-    note.textContent = 'Account created successfully! Welcome to RYAD.';
-    note.style.color = 'green';
-    form.reset();
-  });
+      signupNote.textContent = 'Account created successfully! Welcome to RYAD.';
+      signupNote.style.color = 'green';
+      parentForm.reset();
+    });
+  }
 </script>
 
 <script src="script.js"></script>
