@@ -17,7 +17,7 @@
 </div>
 
 <!-- ===== NAVBAR ===== -->
-<header id="navbar">
+<header id="navbar" class="scrolled">
   <div class="nav-container">
     <a href="index.html#home" class="logo">TEENZNET<span>·RYAD</span></a>
 
@@ -43,7 +43,7 @@
 <section id="contact" class="contact-section" style="padding-top: 140px;">
   <div class="container contact-grid">
     <div class="contact-info" data-aos="fade-right">
-      <p class="section-tag light">Contact Us</p>
+      <p class="section-tag light" style="color:var(--accent);">Contact Us</p>
       <h2>Let's Build The Future Together</h2>
       <p>Reach out to learn more, register, volunteer or partner with the RYAD movement.</p>
 
@@ -143,11 +143,11 @@
   const preloader = document.getElementById('preloader');
   window.addEventListener('load', () => setTimeout(() => preloader.classList.add('hide'), 400));
 
-  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
     backToTop.classList.toggle('show', window.scrollY > 500);
   });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -161,9 +161,6 @@
       navLinks.classList.remove('active');
     });
   });
-
-  const backToTop = document.getElementById('backToTop');
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   const contactForm = document.getElementById('contactForm');
   const contactNote = document.getElementById('contactNote');
