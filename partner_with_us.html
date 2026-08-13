@@ -17,7 +17,7 @@
 </div>
 
 <!-- ===== NAVBAR ===== -->
-<header id="navbar">
+<header id="navbar" class="scrolled">
   <div class="nav-container">
     <a href="index.html#home" class="logo">TEENZNET<span>·RYAD</span></a>
 
@@ -129,11 +129,11 @@
   const preloader = document.getElementById('preloader');
   window.addEventListener('load', () => setTimeout(() => preloader.classList.add('hide'), 400));
 
-  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
     backToTop.classList.toggle('show', window.scrollY > 500);
   });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -147,9 +147,6 @@
       navLinks.classList.remove('active');
     });
   });
-
-  const backToTop = document.getElementById('backToTop');
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   const partnerForm = document.getElementById('partnerForm');
   const partnerNote = document.getElementById('partnerNote');
